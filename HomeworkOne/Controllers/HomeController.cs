@@ -1,4 +1,5 @@
 ﻿using HomeworkOne.Models;
+using HomeworkOne.Models.Result;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -24,13 +25,23 @@ namespace HomeworkOne.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(CreateUserViewModel newUser)
+        public IResult Index(CreateUserViewModel newUser)
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("UserInfo", newUser);
+                return new Result
+                {
+                    Success = true,
+                    Data = "Giriş İşlemi Başarılı",
+                    Error = null
+                };
             }
-            return View();
+            return new Result
+            {
+                Success = false,
+                Data = null,
+                Error = "Hatalı giriş."
+            };
         }
 
         public IActionResult UserInfo(CreateUserViewModel user)
