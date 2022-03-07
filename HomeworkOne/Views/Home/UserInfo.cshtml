@@ -1,0 +1,8 @@
+﻿@model CreateUserViewModel
+
+@if (Model != null)
+{
+    <p>@Model?.FirstName @Model?.LastName.ToUpper()<br />
+@Model?.Email <br />
+@Model?.Password</p><hr />
+}

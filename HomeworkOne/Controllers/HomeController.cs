@@ -23,9 +23,19 @@ namespace HomeworkOne.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult Index(CreateUserViewModel newUser)
         {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("UserInfo", newUser);
+            }
             return View();
+        }
+
+        public IActionResult UserInfo(CreateUserViewModel user)
+        {
+            return View(user);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
