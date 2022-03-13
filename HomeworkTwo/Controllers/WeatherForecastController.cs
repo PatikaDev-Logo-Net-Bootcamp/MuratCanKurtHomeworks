@@ -35,5 +35,19 @@ namespace HomeworkTwo.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet]
+        [Route("Login")]
+        public string Login()
+        {
+            return "Login Sayfasi";
+        }
+
+        [HttpGet]
+        [Route("Register")]
+        public string Register()
+        {
+            return "Register Sayfasi";
+        }
     }
 }

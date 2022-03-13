@@ -19,11 +19,16 @@ namespace HomeworkTwo.Middlewares
 
         public Task Invoke(HttpContext httpContext)
         {
-            httpContext.Request.Headers.TryGetValue("AppVersion", out var requestVersion);
-            if (double.Parse(requestVersion) > double.Parse(_option.AppVersion))
-                httpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            var req = httpContext.Request.Path.ToString().ToLower();
+            if (!(req.Contains("login") || req.Contains("register")))
+            {
+                httpContext.Request.Headers.TryGetValue("AppVersion", out var requestVersion);
+                if (double.Parse(requestVersion) > double.Parse(_option.AppVersion))
+                    httpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            }
 
             return _next(httpContext);
+
         }
     }
 
