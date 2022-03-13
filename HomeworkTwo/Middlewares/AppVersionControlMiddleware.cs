@@ -21,7 +21,7 @@ namespace HomeworkTwo.Middlewares
         {
             httpContext.Request.Headers.TryGetValue("AppVersion", out var requestVersion);
             if (double.Parse(requestVersion) > double.Parse(_option.AppVersion))
-                throw new InvalidOperationException("Version uyusmamaktadir.");
+                httpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
 
             return _next(httpContext);
         }
