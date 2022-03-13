@@ -1,3 +1,4 @@
+using HomeworkTwo.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,6 +38,8 @@ namespace HomeworkTwo
             }
 
             app.UseHttpsRedirection();
+
+            app.UseAppVersionControlMiddleware(new Models.AppOptions { AppVersion = Configuration["AppVersion"] });
 
             app.UseRouting();
 
