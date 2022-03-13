@@ -38,6 +38,7 @@ namespace HomeworkTwo.Controllers
 
         [HttpGet]
         [Route("Login")]
+        [ApiExplorerSettings(IgnoreApi = true)]
         public string Login()
         {
             return "Login Sayfasi";
@@ -48,6 +49,13 @@ namespace HomeworkTwo.Controllers
         public string Register()
         {
             return "Register Sayfasi";
+        }
+
+        [HttpPost]
+        [Route("newForecast")]
+        public WeatherForecast Create([FromBody] WeatherForecast weatherForecast)
+        {
+            return weatherForecast;
         }
     }
 }
