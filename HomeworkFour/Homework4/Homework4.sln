@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework4", "Homework4.csproj", "{CB572EAE-5317-47E4-A857-7E1DAA449FA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework4.Domain", "..\Domain\Homework4.Domain.csproj", "{E9F936F9-C308-453C-8302-5665DE86AAFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework4.Domain", "..\Homework4.Domain\Homework4.Domain.csproj", "{E9F936F9-C308-453C-8302-5665DE86AAFF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework4.DataAccess.EntityFramework.Repository", "..\Homework4.DataAccess.EntityFramework.Repository\Homework4.DataAccess.EntityFramework.Repository.csproj", "{34B3D0E1-3CED-4FC9-8A80-41FF638367B6}"
 EndProject
