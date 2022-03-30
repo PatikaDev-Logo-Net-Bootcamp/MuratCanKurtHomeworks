@@ -36,16 +36,7 @@ namespace Homework4.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var companies = companyService.GetAll().Select(x => new CompanyDTO
-            {
-                Name = x.Name,
-                Address = x.Address,
-                City = x.City,
-                Country = x.Country,
-                Description = x.Description,
-                Location = x.Location,
-                Phone = x.Phone
-            });
+            var companies = companyService.GetAll();
             return Ok(new ResponseModel { Data = companies, Success = true});
         }
 
@@ -58,54 +49,23 @@ namespace Homework4.Controllers
         [HttpPost]
         public IActionResult Add([FromBody] CompanyDTO model)
         {
-            companyService.Add(new Company
-            {
-                Name = model.Name.ToUpper(),
-                Description = model.Description,
-                Address = model.Address,
-                City = model.City,
-                Country = model.Country,
-                Location = model.Location,
-                Phone = model.Phone,
-                CreatedBy = "Murat",
-                IsDeleted = false,
-                CreatedAt = DateTime.Now,
-                LastUpdatedAt = DateTime.Now,
-                LastUpdatedBy = "Murat"
-            });
+            companyService.Add(model);
             return Ok(new ResponseModel { Data = "New company successfuly added.", Success = true});
         }
 
         [Route("DeleteCompany")]
         [HttpDelete]
-        public IActionResult Delete([FromBody] DeleteCompanyDTO deleteCompanyDTO)
+        public IActionResult Delete(int Id)
         {
-            companyService.Delete(new Company
-            {
-                Name = deleteCompanyDTO.Name.ToUpper(),
-                Address = deleteCompanyDTO.Address,
-                City = deleteCompanyDTO.City
-
-            });
-            return Ok(new ResponseModel { Data = $"Company {deleteCompanyDTO.Name} is successfuly deleted.", Success = true});
+            companyService.Delete(Id);
+            return Ok(new ResponseModel { Data = $"Company with id {Id} is successfuly deleted.", Success = true});
         }
 
         [Route("UpdateCompany")]
         [HttpPut]
         public IActionResult Update([FromBody] CompanyDTO companyDTO)
         {
-            companyService.Update(new Company
-            {
-                Name = companyDTO.Name.ToUpper(),
-                Description=companyDTO.Description,
-                Address=companyDTO.Address,
-                City=companyDTO.City,
-                Country=companyDTO.Country,
-                Location=companyDTO.Location,
-                Phone=companyDTO.Phone,
-                LastUpdatedBy = "Not Murat",
-                LastUpdatedAt = DateTime.Now
-            });
+            companyService.Update(companyDTO);
             return Ok(new ResponseModel { Data = $"Company {companyDTO.Name} is successfuly updated.", Success = true });
         }
     }

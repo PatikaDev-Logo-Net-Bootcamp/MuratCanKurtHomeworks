@@ -9,5 +9,6 @@ namespace Homework4.DataAccess.EntityFramework.Repository.Abstracts
         void Add(T entity);
         void Update(T entity);
         void Delete(T entity);
+        public T GetById(int id);
     }
 }

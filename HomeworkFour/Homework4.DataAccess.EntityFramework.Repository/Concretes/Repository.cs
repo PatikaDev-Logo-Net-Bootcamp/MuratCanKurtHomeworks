@@ -26,7 +26,7 @@ namespace Homework4.DataAccess.EntityFramework.Repository.Concretes
             if (exist != null)
             {
                 exist.IsDeleted = true;
-                this.unitOfWork.Context.Entry(entity).State = EntityState.Modified;
+                this.unitOfWork.Context.Entry(exist).State = EntityState.Modified;
             }
         }
 
@@ -38,6 +38,12 @@ namespace Homework4.DataAccess.EntityFramework.Repository.Concretes
         public void Update(T entity)
         {
             this.unitOfWork.Context.Entry(entity).State = EntityState.Modified;
+        }
+
+
+        public T GetById(int id)
+        {
+            return this.unitOfWork.Context.Set<T>().SingleOrDefault(x => x.Id == id);
         }
     }
 }
