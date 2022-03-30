@@ -12,7 +12,7 @@ namespace Homework4.Domain.Entities
 
         public DateTime CreatedAt { get; set; }
 
-//        [Required(ErrorMessage = "CreatedBy alanı zorunludur")]
+        [Required(ErrorMessage = "CreatedBy alanı zorunludur")]
         public string CreatedBy { get; set; }
 
         public DateTime? LastUpdatedAt { get; set; }

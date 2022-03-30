@@ -14,23 +14,17 @@ namespace Homework4.Business.Concretes
     public class JwtService : IJwtService
     {
         private readonly IConfiguration config;
+        private readonly IUserLoginService userLoginService;
 
-        public JwtService(IConfiguration config)
+        public JwtService(IConfiguration config, IUserLoginService userLoginService)
         {
             this.config = config;
+            this.userLoginService = userLoginService;
         }
-
-        //Create Users repository and fetch these from database later
-        Dictionary<string, string> users = new Dictionary<string, string>
-        {
-            {"user1","password1" },
-            {"user2","password2" },
-            {"user3","password3" }
-        };
 
         public TokenDTO Authenticate(UserDTO user)
         {
-            if (!users.Any(x => x.Key == user.UserName && x.Value == user.Password))
+            if (!this.userLoginService.CheckCredentials(user))
                 return null;
 
             var tokenHandler = new JwtSecurityTokenHandler();

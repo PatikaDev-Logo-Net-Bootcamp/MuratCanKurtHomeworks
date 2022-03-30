@@ -58,7 +58,7 @@ namespace Homework4
                     IssuerSigningKey = new SymmetricSecurityKey(key)
                 };
             });
-            services.AddSingleton<IJwtService, JwtService>();
+            services.AddScoped<IJwtService, JwtService>();
 
             services.AddSwaggerGen(c =>
             {
@@ -92,7 +92,7 @@ namespace Homework4
                 });
             });
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
-
+            services.AddTransient<IUserLoginService, UserLoginService>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient(typeof(IRepository<>),typeof(Repository<>));
             services.AddTransient<ICompanyService, CompanyService>();
