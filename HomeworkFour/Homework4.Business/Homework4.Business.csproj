@@ -1,7 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Reflection\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Homework4.DataAccess.EntityFramework.Repository\Homework4.DataAccess.EntityFramework.Repository.csproj" />
+    <ProjectReference Include="..\Homework4.Domain\Homework4.Domain.csproj" />
+  </ItemGroup>
 
 </Project>

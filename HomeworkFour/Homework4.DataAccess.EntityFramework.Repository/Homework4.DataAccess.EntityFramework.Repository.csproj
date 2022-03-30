@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Homework4.Domain.csproj" />
+    <ProjectReference Include="..\Homework4.Domain\Homework4.Domain.csproj" />
     <ProjectReference Include="..\Homework4.DataAccess.EntityFramework\Homework4.DataAccess.EntityFramework.csproj" />
   </ItemGroup>
 
