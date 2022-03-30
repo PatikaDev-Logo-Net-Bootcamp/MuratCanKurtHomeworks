@@ -3,7 +3,6 @@ using Homework4.Business.DTOs;
 using Homework4.Domain.Entities;
 using Homework4.Filters;
 using Homework4.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -75,6 +74,39 @@ namespace Homework4.Controllers
                 LastUpdatedBy = "Murat"
             });
             return Ok(new ResponseModel { Data = "New company successfuly added.", Success = true});
+        }
+
+        [Route("DeleteCompany")]
+        [HttpDelete]
+        public IActionResult Delete([FromBody] DeleteCompanyDTO deleteCompanyDTO)
+        {
+            companyService.Delete(new Company
+            {
+                Name = deleteCompanyDTO.Name.ToUpper(),
+                Address = deleteCompanyDTO.Address,
+                City = deleteCompanyDTO.City
+
+            });
+            return Ok(new ResponseModel { Data = $"Company {deleteCompanyDTO.Name} is successfuly deleted.", Success = true});
+        }
+
+        [Route("UpdateCompany")]
+        [HttpPut]
+        public IActionResult Update([FromBody] CompanyDTO companyDTO)
+        {
+            companyService.Update(new Company
+            {
+                Name = companyDTO.Name.ToUpper(),
+                Description=companyDTO.Description,
+                Address=companyDTO.Address,
+                City=companyDTO.City,
+                Country=companyDTO.Country,
+                Location=companyDTO.Location,
+                Phone=companyDTO.Phone,
+                LastUpdatedBy = "Not Murat",
+                LastUpdatedAt = DateTime.Now
+            });
+            return Ok(new ResponseModel { Data = $"Company {companyDTO.Name} is successfuly updated.", Success = true });
         }
     }
 }

@@ -27,5 +27,17 @@ namespace Homework4.Business.Concretes
         {
             return repository.Get().ToList();
         }
+
+        public void Delete(Company company)
+        {
+            repository.Delete(company);
+            unitOfWork.Commit();
+        }
+
+        public void Update(Company company)
+        {
+            repository.Update(company);
+            unitOfWork.Commit();
+        }
     }
 }
