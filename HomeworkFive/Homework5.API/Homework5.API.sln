@@ -5,11 +5,13 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework5.API", "Homework5.API.csproj", "{7FE607F4-24A1-47B9-98C7-939113000179}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework5.API.Domain", "..\Homework5.API.Domain\Homework5.API.Domain.csproj", "{62101807-C0FA-4867-B1D0-E8CA604BD234}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework5.API.Domain", "..\Homework5.API.Domain\Homework5.API.Domain.csproj", "{62101807-C0FA-4867-B1D0-E8CA604BD234}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework5.API.DataAccess.EntityFramework", "..\Homework5.API.DataAccess.EntityFramework\Homework5.API.DataAccess.EntityFramework.csproj", "{BB9BA911-B91D-46F7-BC5C-1646474A4AEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework5.API.DataAccess.EntityFramework", "..\Homework5.API.DataAccess.EntityFramework\Homework5.API.DataAccess.EntityFramework.csproj", "{BB9BA911-B91D-46F7-BC5C-1646474A4AEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework5.API.Business", "..\Homework5.API.Business\Homework5.API.Business.csproj", "{9A178402-4555-4869-8E5C-C403B401B3B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework5.API.Business", "..\Homework5.API.Business\Homework5.API.Business.csproj", "{9A178402-4555-4869-8E5C-C403B401B3B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonPlaceHolderRecord", "..\JsonPlaceHolderRecord\JsonPlaceHolderRecord.csproj", "{C2AF8D3A-D804-4B05-8444-A8C463008CB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9A178402-4555-4869-8E5C-C403B401B3B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A178402-4555-4869-8E5C-C403B401B3B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A178402-4555-4869-8E5C-C403B401B3B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2AF8D3A-D804-4B05-8444-A8C463008CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2AF8D3A-D804-4B05-8444-A8C463008CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2AF8D3A-D804-4B05-8444-A8C463008CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2AF8D3A-D804-4B05-8444-A8C463008CB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

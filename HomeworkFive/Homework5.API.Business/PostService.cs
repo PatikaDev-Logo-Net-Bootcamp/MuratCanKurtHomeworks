@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Homework5.API.Business
 {
@@ -13,6 +15,7 @@ namespace Homework5.API.Business
         List<Post> GetUserPosts(int userId);
         Post GetById(int id);
         void AddPost(Post post);
+        Task AddPost(Post post, CancellationToken cancellationToken = default);
     }
     public class PostService : IPostService
     {
@@ -45,5 +48,13 @@ namespace Homework5.API.Business
             _unitOfWork.Commit();
         }
 
+        public async Task AddPost(Post post, CancellationToken cancellationToken = default)
+        {
+            await Task.Run(() =>
+            {
+                _repository.Add(post);
+                _unitOfWork.Commit();
+            }, cancellationToken);
+        }
     }
 }

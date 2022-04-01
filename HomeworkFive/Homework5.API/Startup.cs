@@ -2,6 +2,8 @@ using Homework5.API.Business;
 using Homework5.API.DataAccess.EntityFramework;
 using Homework5.API.DataAccess.EntityFramework.Repository.Abstracts;
 using Homework5.API.DataAccess.EntityFramework.Repository.Concretes;
+using Homework5.API.Domain.Entities;
+using JsonPlaceHolderRecord;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +34,9 @@ namespace Homework5.API
             });
 
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
+            services.AddHostedService<PostsFetchWorker>();
+            services.AddHostedService<PostsRecordWorker>();
+            services.AddSingleton<IQueue<Post>, PostsQueue<Post>>();
             services.AddTransient<IPostService, PostService>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
