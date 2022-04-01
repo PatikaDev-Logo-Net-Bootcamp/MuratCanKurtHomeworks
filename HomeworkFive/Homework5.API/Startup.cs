@@ -1,16 +1,14 @@
+using Homework5.API.Business;
+using Homework5.API.DataAccess.EntityFramework;
+using Homework5.API.DataAccess.EntityFramework.Repository.Abstracts;
+using Homework5.API.DataAccess.EntityFramework.Repository.Concretes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Homework5.API
 {
@@ -32,6 +30,11 @@ namespace Homework5.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Homework5.API", Version = "v1" });
             });
+
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
+            services.AddTransient<IPostService, PostService>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
