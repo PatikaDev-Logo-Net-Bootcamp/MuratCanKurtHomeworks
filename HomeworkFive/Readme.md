@@ -47,9 +47,10 @@ Update-Database
 ![image](https://user-images.githubusercontent.com/59605826/161351213-0c465c04-a5e2-4fa9-8827-643ec4800ad7.png)  
 
 ## My Homework
-- I could my background workers into a folders under my main project but I decided to try to add as a worker layer, so created a worker layer, there are two background workers,
-- PostsFetchWorker, sends http requests to site and adds the 'posts' in the request contend to the queue one by one.
-- PostsRecordWorker, dequeues each post and uses AddPost overload method of PostService to record them to database.
+- I could put my background workers into a folder under my main project, but I decided to try to add as a Worker Service layer, so created a worker layer.
+- There are two background workers in the layer,
+- PostsFetchWorker, sends http requests to the site and adds the 'posts' in the request contend to the queue one by one.
+- PostsRecordWorker, dequeues each post and uses AddPost overload method of PostService of the business layer to record them into database.
 
 ![image](https://user-images.githubusercontent.com/59605826/161350584-df902967-8e50-49ad-81aa-ae18e8d6a1aa.png)
 ![image](https://user-images.githubusercontent.com/59605826/161350654-89ad52e4-4118-434c-af94-4e6abfb967ff.png)
