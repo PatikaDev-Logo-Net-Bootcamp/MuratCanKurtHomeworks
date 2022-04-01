@@ -51,10 +51,13 @@ Update-Database
 - There are two background workers in the layer,
 - PostsFetchWorker, sends http requests to the site and adds the 'posts' in the request contend to the queue one by one.
 - PostsRecordWorker, dequeues each post and uses AddPost overload method of PostService of the business layer to record them into database.
+ 
+![image](https://user-images.githubusercontent.com/59605826/161350584-df902967-8e50-49ad-81aa-ae18e8d6a1aa.png)  
 
-![image](https://user-images.githubusercontent.com/59605826/161350584-df902967-8e50-49ad-81aa-ae18e8d6a1aa.png)
-![image](https://user-images.githubusercontent.com/59605826/161350654-89ad52e4-4118-434c-af94-4e6abfb967ff.png)
-![image](https://user-images.githubusercontent.com/59605826/161351084-7a05950f-d973-4cde-bd3e-ad82726a1da5.png)
+![image](https://user-images.githubusercontent.com/59605826/161350654-89ad52e4-4118-434c-af94-4e6abfb967ff.png)  
+
+![image](https://user-images.githubusercontent.com/59605826/161351084-7a05950f-d973-4cde-bd3e-ad82726a1da5.png)  
+
 ![image](https://user-images.githubusercontent.com/59605826/161351714-08e55771-7ee6-49ba-b923-feda83e16e81.png)
 
 
